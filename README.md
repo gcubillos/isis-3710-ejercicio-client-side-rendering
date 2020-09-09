@@ -1,1 +1,2 @@
-# isis-3710-ejercicio-client-side-rendering
+# isis-3710-ejercicio-client-side-rendering  
+Ejercicio basado en las instrucciones encontradas en: https://uniandes.sharepoint.com/:w:/s/ISISPTW/Eeku_QvZuOpPnK2gtCqIZ8wB7BVq30A3PcnY27emaOyj0w?e=FolsS7
