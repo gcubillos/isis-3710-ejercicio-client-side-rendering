@@ -39,8 +39,7 @@ pedirJSON("https://gist.githubusercontent.com/josejbocanegra/b1873c6b7e732144355
         console.log(jsonDatos[0])
 
         // Utilizar los datos del JSON para crear los otros headers de la tabla
-        for (let key of Object.keys(jsonDatos[0]))
-        {
+        for (let key of Object.keys(jsonDatos[0])) {
             th = document.createElement("th");
             textoHeader = document.createTextNode(key)
             th.appendChild(textoHeader);
@@ -48,14 +47,31 @@ pedirJSON("https://gist.githubusercontent.com/josejbocanegra/b1873c6b7e732144355
         }
 
         // Introducir datos en la tabla
-        for
-        let currentRow = tabla.insertRow();
+        for (let index = 0; index < jsonDatos.length; index++) {
+            // Agregar numeración de tabla
+            let tr = tabla.insertRow();
+            let datoColumna = tr.insertCell();
+            let texto = document.createTextNode(index + 1);
+            datoColumna.appendChild(texto);
+            // Insertar datos de tabla
+            for (let key of Object.keys(jsonDatos[index])) {
+                datoColumna = tr.insertCell();
+                texto = document.createTextNode(jsonDatos[index][key]);
+                datoColumna.appendChild(texto);
+                // Resaltar la fila
+                if (jsonDatos[index][key] === true) {
 
-        // Insertar cell
-        let currentCell = currentRow.insertCell(0);
-        let texto = document.createTextNode("#")
-        currentCell.appendChild(texto)
+                    tr.style.backgroundColor = 'red';
+                }
+
+            }
+
+        }
+
+
+        // Append la tabla
         document.body.appendChild(tabla);
+
     }
 )
 
