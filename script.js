@@ -22,34 +22,33 @@ pedirJSON("https://gist.githubusercontent.com/josejbocanegra/b1873c6b7e732144355
     function (response) {
         jsonDatos = JSON.parse(response)
         // Punto A Creación de tabla
-        let tituloEvents = document.createElement('h1')
-        let titulo = document.createTextNode("Events")
-        tituloEvents.appendChild(titulo)
-        document.body.appendChild(tituloEvents)
-        let tabla = document.createElement('table')
+        let tituloEventsA = document.createElement('h1')
+        let tituloA = document.createTextNode("Events")
+        tituloEventsA.appendChild(tituloA)
+        document.body.appendChild(tituloEventsA)
+        let tablaA = document.createElement('table')
 
         // Crear el header de la tabla
-        let tHeadPuntoA = tabla.createTHead();
-        let rowHeader = tHeadPuntoA.insertRow();
-        let th = document.createElement("th");
-        let textoHeader = document.createTextNode("#");
-        th.appendChild(textoHeader);
-        rowHeader.appendChild(th);
+        let tHeadPuntoA = tablaA.createTHead();
+        let rowHeaderA = tHeadPuntoA.insertRow();
+        let thA = document.createElement("th");
+        let textoHeaderA = document.createTextNode("#");
+        thA.appendChild(textoHeaderA);
+        rowHeaderA.appendChild(thA);
 
-        console.log(jsonDatos[0])
 
         // Utilizar los datos del JSON para crear los otros headers de la tabla
         for (let key of Object.keys(jsonDatos[0])) {
-            th = document.createElement("th");
-            textoHeader = document.createTextNode(key)
-            th.appendChild(textoHeader);
-            rowHeader.appendChild(th);
+            thA = document.createElement("th");
+            textoHeaderA = document.createTextNode(key)
+            thA.appendChild(textoHeaderA);
+            rowHeaderA.appendChild(thA);
         }
 
         // Introducir datos en la tabla
         for (let index = 0; index < jsonDatos.length; index++) {
             // Agregar numeración de tabla
-            let tr = tabla.insertRow();
+            let tr = tablaA.insertRow();
             let datoColumna = tr.insertCell();
             let texto = document.createTextNode(index + 1);
             datoColumna.appendChild(texto);
@@ -69,18 +68,50 @@ pedirJSON("https://gist.githubusercontent.com/josejbocanegra/b1873c6b7e732144355
         }
 
 
-        // Append la tabla
-        document.body.appendChild(tabla);
+        // Agrega la tabla
+        document.body.appendChild(tablaA);
+
+        /*
+        // Punto B Creación de tabla
+        let tituloEvents = document.createElement('h1')
+        let titulo = document.createTextNode("Correlation of Events")
+        tituloEvents.appendChild(titulo)
+        document.body.appendChild(tituloEvents)
+        let tabla = document.createElement('table')
+
+        // Crear el header de la tabla
+        let tHeadPuntoB = tabla.createTHead();
+        let rowHeader = tHeadPuntoB.insertRow();
+        let th = document.createElement("th");
+        let textoHeader = document.createTextNode("#");
+        th.appendChild(textoHeader);
+        rowHeader.appendChild(th);
+
+
+        // Utilizar los datos del JSON para crear los otros headers de la tabla
+        for (let key of Object.keys(jsonDatos[0])) {
+            th = document.createElement("th");
+            textoHeader = document.createTextNode(key)
+            th.appendChild(textoHeader);
+            rowHeader.appendChild(th);
+        }
+        for (let index = 0; index<jsonDatos.length; index++)
+        {
+            for(value in jsonDatos[index])
+            {
+
+            }
+            
+        }
+
+        // Agrega la tabla B
+        document.body.appendChild(tabla);*/
+
+        
+
+        
+            
+        
 
     }
 )
-
-
-// Punto A
-
-/*para.addEventListener('click', updateName);
-
-function updateName() {
-  let name = prompt('Enter a new name');
-  para.textContent = 'Player 1: ' + name;
-}*/
